@@ -12,22 +12,29 @@
         <!--Validacion Login-->
     <script> 
         $(document).ready(function(){
+             $("#idRegis").click(function(){
+            	window.location.href='Indice/Reg_Doc/Reg_Doc.html';
+            })
             var prueba
             $("#idIngresar").click(function(){
             	var cedu=$("#idCedula").val();
             	var contra=$("#idContrasena").val();
                		
-               		
-                   	if((cedu==1234567890)&&(contra==12345)){
-                	window.location.href='Indice/Triaje/Triaje.html';
-                   } else alert("Usuario o Contraseña Incorrecta, verifique de nuevo")
-               	
-            });
-
-            $("#idRegis").click(function(){
-            	window.location.href='Indice/Reg_Doc/Reg_Doc.html';
+                   	$.ajax({
+                   type:"GET",
+                   url:"http://localhost:3000/todo",
+                   dataType:"json",
+                   contentType:"text/plain"
+               }).done(function(msg){
+                   for (var dato in msg[0])
+                   {
+                   	if((cedu==msg[0][dato].cedula)&&(contra==msg[0][dato].contrasena)){
+                	window.location.href='http://triaje.azurewebsites.net/Indice/Triaje/Triaje.html';
+                   }else alert("Usuario o Contraseña Incorrecta, verifique de nuevo")
+                   }
+                   });
             })
-            });
+            })
 
                 </script>
 </head>

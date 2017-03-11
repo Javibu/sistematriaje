@@ -11,14 +11,35 @@
 
         <script>
             $(document).ready(function() {
-                $("#btnregistrar").click(function() {
+                $("#idIngresar").click(function(){
+                var nombre=$("#apellido").val();
+                var cedula=$("#cedula").val(); 
+                var edad=$("#edad").val();
+                var peso=$("#peso")
+                var genero1= $('*#rmasculino').is(':checked');
+                var genero2= $('*#rfemenino').is(':checked');
+                var genero="";
+                if(genero1==true){
+                    genero="Masculino";
+                }else{genero="Femenino"}
+
+                datos={"cedula":cedula, "nombre":apellido, "edad":edad, "peso":peso, "genero":genero};
+                 $.ajax({
+                   type:"POST",
+                   url:"http://localhost:3000/todo",
+                   dataType:"text",
+                   contentType:"application/json"
+                   data: JSON.stringify(datos)
+               }).done(function(msg){
                     alert("Registrado")
                 });
+           }
+            })
                 $("#btnAtras").click(function() {
                     window.location.href = '../Triaje/Triaje.html'
                 });
             });
-        </script>
+     </script>
 
     </head>
 
@@ -61,26 +82,13 @@
                     <div>
                         <label id="lapellido"> <b> Apellidos:</b> 
                         </label>
-                        <input type="text" id="apellido" class="apellido" name="apellido" placeholder="Ambos Apellidos" required>
-                        <br>
-                    </div>
-                    <div>
-                        <label id="lnombre"> <b> Nombres:</b> 
-                        </label>
-                        <input type="text" id="nombre" class="nombre" name="nombre" placeholder="Ambos Nombres" required>
+                        <input type="text" id="apellido" class="apellido" name="apellido" placeholder="Apellido primero luego Nombre" required>
                         <br>
                     </div>
                     <div>
                         <label id="lcedula"> <b>Cédula:</b> 
                         </label>
                         <input type="text" id="cedula" class="cedula" name="cedula" placeholder="Ejemplo: 1234567890" required>
-                        <br>
-                    </div>
-
-                    <div>
-                        <label id="lnacimiento"> <b>Fecha de nacimiento:</b> 
-                        </label>
-                        <input type="date" id="fecha" class="fecha" name="fecha" required>
                         <br>
                     </div>
 
@@ -93,7 +101,7 @@
                     <div>
                         <label id="lapellido"> <b> Peso:</b> 
                         </label>
-                        <input type="text" id="peso" class="peso" name="peso" placeholder="Ejemplo: 20 kg" required>
+                        <input type="text" id="peso" class="peso" name="peso" placeholder="Ejemplo: 50 kg" required>
                         <br>
                     </div>
 
@@ -119,7 +127,7 @@
                     <br>
                     <br>
                     <div>
-                        <button type="button" class="boton" id="btnregistrar" value="Registrar Paciente">Registrar</button>
+                        <button type="button" class="boton" id="idIngresar" value="Registrar Paciente">Registrar</button>
                         <button type="button" class="boton" id="btnAtras" value="Atras">Volver</button>
                     </div>
 

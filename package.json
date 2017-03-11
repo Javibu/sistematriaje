@@ -1,0 +1,15 @@
+{
+  "name": "proyectotriaje",
+  "version": "1.0.0",
+  "description": "sistema de triaje",
+  "main": "servicio.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "azure"
+  },
+  "author": "JuniorJavier",
+  "license": "ISC"
+}

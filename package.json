@@ -1,15 +1,14 @@
 {
-  "name": "proyectotriaje",
+  "name": "proyecto",
   "version": "1.0.0",
-  "description": "sistema de triaje",
-  "main": "servicio.js",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "azure"
-  },
-  "author": "JuniorJavier",
+  "author": "",
   "license": "ISC"
 }
